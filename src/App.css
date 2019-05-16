@@ -2,32 +2,112 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#434343), to(#000000));
+  background: linear-gradient(to right, #434343, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#gradient {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes App-logo-spin {
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10%;
+}
+
+.main .title h1 {
+  width: 100%;
+  font-weight: 700;
+  font-size: 3em;
+  line-height: 1.25em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.main h2 {
+  float: right;
+  display: block;
+  background: transparent;
+  border: 1px solid #ffffff;
+  text-align: left;
+  font-size: 30px;
+  font-weight: 300;
+  color: #ffffff;
+  width: 350px;
+  border-radius: 7px;
+}
+
+.main .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.main .form input {
+  height: 50px;
+  width: 350px;
+  border-radius: 7px;
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+.main .form button {
+  border-radius: 7px;
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
+/*# sourceMappingURL=App.css.map */
