@@ -22,7 +22,8 @@ app.get('/', (req, res) => {
         workspace_id: '063e86c6-8b51-4076-8875-73dfc556fce5',
         input: { 'text': req.query.input }
     }).then(answer => {
-            res.send(answer.output.text[0]);
+            
+            res.send(answer.output.generic);
         })
     .catch(err => {
             console.log(err)

@@ -4,30 +4,20 @@
 
 body {
   background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
+  background: linear-gradient(
+    to bottom,
     #434343,
     #000000
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  background-color: black;
+
   padding: 0px;
   margin: 0px;
   color: white;
+
+  height: 100%;
 }
 
-#gradient {
-  width: 100%;
-  min-height: 100vh;
-  padding: 0px;
-  margin: 0px;
-  box-shadow: inset 0 0 200px hsla(0, 0%, 0%, 0.4);
-}
 
 .main {
   display: flex;
@@ -49,15 +39,29 @@ body {
   }
 
   h2 {
-    float: right;
-    display: block;
+    display: inline-block;
+    align-self: flex-start;
     background: transparent;
     border: 1px solid #ffffff;
     text-align: left;
     font-size: 30px;
     font-weight: 300;
     color: #ffffff;
-    width: 350px;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #333333
+  }
+
+  .request {
+    color: black;
+    align-self: flex-end;
+    text-align: right;
+    background-color: lightgray;
+  }
+
+  img {
+    width: 320px;
+    align-self: flex-start;
     border-radius: 7px;
   }
 
@@ -89,6 +93,17 @@ body {
       border: 1px solid white;
     }
   }
+}
+
+.messageBox {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.gifText {
+  display: flex;
+  flex-direction: column;
 }
 /* @keyframes App-logo-spin {
   from {

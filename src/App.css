@@ -5,23 +5,13 @@
 body {
   background: #000000;
   /* fallback for old browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(#434343), to(#000000));
+  background: linear-gradient(to bottom, #434343, #000000);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#434343), to(#000000));
-  background: linear-gradient(to right, #434343, #000000);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-color: black;
   padding: 0px;
   margin: 0px;
   color: white;
-}
-
-#gradient {
-  width: 100%;
-  min-height: 100vh;
-  padding: 0px;
-  margin: 0px;
-  -webkit-box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.4);
-          box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.4);
+  height: 100%;
 }
 
 .main {
@@ -52,15 +42,32 @@ body {
 }
 
 .main h2 {
-  float: right;
-  display: block;
+  display: inline-block;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   background: transparent;
   border: 1px solid #ffffff;
   text-align: left;
   font-size: 30px;
   font-weight: 300;
   color: #ffffff;
-  width: 350px;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: #333333;
+}
+
+.main .request {
+  color: black;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: right;
+  background-color: lightgray;
+}
+
+.main img {
+  width: 320px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   border-radius: 7px;
 }
 
@@ -100,6 +107,27 @@ body {
   background-color: black;
   color: white;
   border: 1px solid white;
+}
+
+.messageBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 600px;
+}
+
+.gifText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 /* @keyframes App-logo-spin {
