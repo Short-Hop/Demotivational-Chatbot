@@ -8,13 +8,16 @@ class App extends React.Component {
     messages: []
   };
 
-  scrollDown = event => {
-    let div = document.querySelector(".messageBox")
-    div.scrollTop = div.scrollHeight
+  componentDidUpdate() {
+    setTimeout(()=> {
+      let div = document.querySelector(".messageBox")
+      div.scrollTop = div.scrollHeight
+    }, 100)
     
   }
 
   postMessage = event => {
+    console.log('changed');
     event.preventDefault();
     if (event.target.textInput.value == '') {
       return '';
@@ -32,8 +35,12 @@ class App extends React.Component {
       messages: allMessages
     });
 
+    let div = document.querySelector(".messageBox")
+    div.scrollTop = div.scrollHeight;
+
 
     console.log(event.target.textInput.value);
+
     axios
       .get("http://localhost:8080/?input=" + event.target.textInput.value)
       .then(response => {
@@ -54,13 +61,19 @@ class App extends React.Component {
 
         allMessages.push(messageObject);
 
-        this.setState({
+        setTimeout(() => {
+          this.setState({
           messages: allMessages,
-        });
+          });
 
-        let div = document.querySelector(".messageBox")
-        div.scrollTop = div.scrollHeight
-      });
+          let div = document.querySelector(".messageBox")
+          div.scrollTop = div.scrollHeight;
+        }, 1000)
+
+        
+
+        
+    });
     event.target.textInput.value = ''
   };
 
@@ -78,16 +91,18 @@ class App extends React.Component {
                   <h2 className='request' key={index}>{item.text}</h2>
                 )
               } else {
-
-                console.log(item.gif);
                 return (
                   <div key={index} className="gifText">
                     <h2 >{item.text}</h2 >
                     <img src={item.gif} />
                   </div>
+                  
                 )
+                
               }
+              
             })
+            
           }
         </div>
 
