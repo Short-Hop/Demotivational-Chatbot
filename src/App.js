@@ -8,10 +8,21 @@ class App extends React.Component {
     messages: []
   };
 
+  scrollDown = event => {
+    let div = document.querySelector(".messageBox")
+    div.scrollTop = div.scrollHeight
+    
+  }
+
   postMessage = event => {
+    event.preventDefault();
+    if (event.target.textInput.value == '') {
+      return '';
+    }
+
     let allMessages = this.state.messages;
 
-    
+
     allMessages.push({
       text: event.target.textInput.value,
       gif: ''
@@ -21,7 +32,7 @@ class App extends React.Component {
       messages: allMessages
     });
 
-    event.preventDefault();
+
     console.log(event.target.textInput.value);
     axios
       .get("http://localhost:8080/?input=" + event.target.textInput.value)
@@ -29,7 +40,7 @@ class App extends React.Component {
         console.log(response);
 
         let messageObject;
-        if(response.data.length > 1) {
+        if (response.data.length > 1) {
           messageObject = {
             text: response.data[0].text,
             gif: response.data[1].source
@@ -39,13 +50,16 @@ class App extends React.Component {
             text: response.data[0].text,
           }
         }
-        
+
 
         allMessages.push(messageObject);
-        
+
         this.setState({
           messages: allMessages,
         });
+
+        let div = document.querySelector(".messageBox")
+        div.scrollTop = div.scrollHeight
       });
     event.target.textInput.value = ''
   };
@@ -59,28 +73,28 @@ class App extends React.Component {
         <div className="messageBox">
           {
             this.state.messages.map((item, index) => {
-              if(index % 2 == 0) {
+              if (index % 2 == 0) {
                 return (
                   <h2 className='request' key={index}>{item.text}</h2>
                 )
               } else {
 
                 console.log(item.gif);
-                return(
+                return (
                   <div key={index} className="gifText">
                     <h2 >{item.text}</h2 >
-                    <img src={item.gif}/>
+                    <img src={item.gif} />
                   </div>
                 )
               }
             })
           }
         </div>
-        
+
         <div className="form">
-        
+
           <form name="textForm" onSubmit={this.postMessage}>
-            <input type="text" name="textInput" />
+            <input type="text" name="textInput" placeholder="Crush my dreams" />
             <br />
             <button>Risk it ! </button>
           </form>
